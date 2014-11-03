@@ -1,0 +1,7 @@
+GIT:
+
+1 - Pull
+2 - Work
+3 - Pull
+4 - Commit
+5 - Push

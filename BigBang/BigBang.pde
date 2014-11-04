@@ -1,6 +1,9 @@
 //Processing - Group Collab HW
 //by Andrew, Leiah, Orien
 
+
+//Bruce Willis is the best
+
 boolean starsExist;
 
 

@@ -7,15 +7,26 @@ boolean starsExist;
 PVector centerPos;
 
 PImage sun;
+boolean sunIs = false;
 PImage mercury; 
+boolean mercuryIs = false;
 PImage venus;
+boolean venusIs = false;
 PImage earth;
+boolean earthIs = false;
 PImage mars;
+boolean marsIs = false;
 PImage jupiter;
+boolean jupiterIs = false;
 PImage saturn;
+boolean saturnIs = false;
 PImage uranus;
+boolean uranusIs = false;
 PImage neptune;
+boolean neptuneIs = false;
+
 PImage asteroid;
+boolean asteroidIs = false;
 
 
 starGen [] starArray = new starGen [3000];
@@ -101,6 +112,8 @@ void spawnSun () {
   //Sun
   imageMode(CENTER);
   image(sun, centerPos.x, centerPos.y, 45, 45);
+  
+  sunIs = true;
 }
 
 void spawnMercury() {
@@ -112,6 +125,8 @@ void spawnMercury() {
   //Mercury
   imageMode(CENTER);
   image(mercury, centerPos.x, centerPos.y - 25, 10, 10);
+  
+  mercuryIs = true;
 }
 
 void spawnVenus() {
@@ -123,6 +138,8 @@ void spawnVenus() {
   //Venus
   imageMode(CENTER);
   image(venus, centerPos.x, centerPos.y - 75, 15, 15);
+  
+  venusIs = true;
 }
 
 void spawnEarth() {
@@ -134,6 +151,8 @@ void spawnEarth() {
   //Earth
   imageMode (CENTER);
   image(earth, centerPos.x, centerPos.y - 125, 15, 15);
+  
+  earthIs = true;
 }
 
 void spawnMars() {
@@ -145,6 +164,8 @@ void spawnMars() {
   //Mars
   imageMode(CENTER);
   image(mars, centerPos.x, centerPos.y - 175, 12, 12);
+  
+  marsIs = true;
 }
 
 void spawnJupiter() {
@@ -156,6 +177,8 @@ void spawnJupiter() {
   //Jupiter
   imageMode(CENTER);
   image(jupiter, centerPos.x, centerPos. y - 225, 50, 60);
+  
+  jupiterIs = true;
 }
 
 void spawnSaturn() {
@@ -167,6 +190,8 @@ void spawnSaturn() {
   //Saturn
   imageMode(CENTER);
   image(saturn, centerPos.x, centerPos.y - 275, 80, 50);
+  
+  saturnIs = true;
 }
 
 void spawnUranus() {
@@ -178,6 +203,8 @@ void spawnUranus() {
   //Uranus
   imageMode(CENTER);
   image(uranus, centerPos.x, centerPos.y - 325, 20, 35);
+  
+  uranusIs = true;
 }
 
 void spawnNeptune() {
@@ -189,6 +216,8 @@ void spawnNeptune() {
   //Neptune
   imageMode(CENTER);
   image(neptune, centerPos.x, centerPos.y - 375, 20, 20);
+  
+  neptuneIs = true;
 }
 
 

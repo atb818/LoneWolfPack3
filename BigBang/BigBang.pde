@@ -40,5 +40,18 @@ void bigBang() {
     starArray[i].starGenUpdate();
   }
   print("starsExist = true. ");
-}
+
+//Arc
+noFill();
+  stroke(255);
+  strokeWeight(1);
+  float x = width/2;
+  float y = 0;
+  float d = width - 200;
+  pushMatrix ();
+  translate(width, height);
+  rotate(PI);
+  arc(x, y, d-20, d-20, 0, PI);
+  popMatrix();
+  }
 

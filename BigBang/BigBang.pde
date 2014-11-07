@@ -1,17 +1,38 @@
 //Processing - Group Collab HW
 //by Andrew, Leiah, Orien
 
-
-//Bruce Willis is the best
-
 boolean starsExist;
 
+PVector centerPos;
+
+PImage sun;
+PImage mercury; 
+PImage venus;
+PImage earth;
+PImage mars;
+PImage jupiter;
+PImage saturn;
+PImage uranus;
+PImage neptune;
+PImage asteroid;
 
 starGen [] starArray = new starGen [3000];
 
 void setup() {
   size(800, 800);
   background(30, 4, 44);
+  
+  sun = loadImage("sun.png");
+  mercury = loadImage("mercury.png");
+  venus = loadImage("venus.png");
+  earth = loadImage("earth.png");
+  mars = loadImage("mars.png");
+  jupiter = loadImage("jupiter.png");
+  saturn = loadImage("saturn.png");
+  uranus = loadImage("uranus.png");
+  neptune = loadImage("neptune.png");
+  
+  centerPos = new PVector (width/2, height/2);
 
   //Initialize b/g star generation
   starsExist = false;
@@ -41,17 +62,42 @@ void bigBang() {
   }
   print("starsExist = true. ");
 
-//Arc
-noFill();
-  stroke(255);
+  //8th Circle
+  noFill();
   strokeWeight(1);
-  float x = width/2;
-  float y = 0;
-  float d = width - 200;
-  pushMatrix ();
-  translate(width, height);
-  rotate(PI);
-  arc(x, y, d-20, d-20, 0, PI);
-  popMatrix();
-  }
+  ellipse(centerPos.x, centerPos.y, 750, 750);
+  
+  //7th Circle
+  ellipse(centerPos.x, centerPos.y, 650, 650);
+  
+  //6th Circle
+  ellipse (centerPos.x, centerPos.y, 550, 550);
+  
+  //5th Circle
+  ellipse (centerPos.x, centerPos.y, 450, 450);
+  
+  //4th Circle
+  ellipse (centerPos.x, centerPos.y, 350, 350);
+  
+  //3rd Circle
+  ellipse (centerPos.x, centerPos.y, 250, 250);
+  
+  //2nd Circle
+  ellipse (centerPos.x, centerPos.y, 150, 150);
+  
+  //1st Circle
+  ellipse (centerPos.x, centerPos.y, 50, 50);
+  
+  //Sun
+  imageMode(CENTER);
+  image(sun, centerPos.x, centerPos.y, 40, 40);
+  
+  //Mercury
+  imageMode(CENTER);
+  image(mercury, centerPos.x, centerPos.y - 25, 10, 10);
+  
+}
+
+
+  
 

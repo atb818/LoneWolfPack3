@@ -96,6 +96,22 @@ void bigBang() {
   imageMode(CENTER);
   image(mercury, centerPos.x, centerPos.y - 25, 10, 10);
   
+  //Venus
+  imageMode(CENTER);
+  image(venus, centerPos.x, centerPos.y - 75, 20, 20);
+  
+  //Earth
+  imageMode (CENTER);
+  image(earth, centerPos.x, centerPos.y - 125, 20, 20);
+  
+  //Mars
+  imageMode(CENTER);
+  image(mars, centerPos.x, centerPos.y - 175, 15, 15);
+  
+  //Jupiter
+  imageMode(CENTER);
+  image(jupiter, centerPos.x, centerPos. y - 225, 60, 60); 
+  
 }
 
 

@@ -2,6 +2,8 @@ class starGen {
 
   float xPos;
   float yPos;
+  //float xStart = mouseX;
+  //float yStart = mouseY;
   PVector starGenPos;
 
   void starGenPrime(int _xPos, int _yPos) {
@@ -12,7 +14,8 @@ class starGen {
 
   void starGenUpdate() {
     stroke (255);
-    point (xPos, yPos);
+    point (xPos,yPos);
+    //point (xPos, yPos);
   }
 }
 

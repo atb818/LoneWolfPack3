@@ -9,7 +9,7 @@ void Asteroid_field() {
   
   class asteroid {
     
-    image(asteroid);
+    //image(asteroid);
     //want random rotation, scatted spawn and spawned off sceen and travel across the screen every 100 millis
         
   

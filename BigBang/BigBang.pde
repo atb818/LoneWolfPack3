@@ -1,29 +1,21 @@
 //Processing - Group Collab HW
 //by Andrew, Leiah, Orien
 
-boolean starsExist;
 
 
 PVector centerPos;
 
+int numClicks = 0;
+
 PImage sun;
-boolean sunIs = false;
 PImage mercury; 
-boolean mercuryIs = false;
 PImage venus;
-boolean venusIs = false;
 PImage earth;
-boolean earthIs = false;
 PImage mars;
-boolean marsIs = false;
 PImage jupiter;
-boolean jupiterIs = false;
 PImage saturn;
-boolean saturnIs = false;
 PImage uranus;
-boolean uranusIs = false;
 PImage neptune;
-boolean neptuneIs = false;
 
 PImage asteroid;
 boolean asteroidIs = false;
@@ -53,7 +45,6 @@ void setup() {
   shootYPos = random(0, height);
 
   //Initialize b/g star generation
-  starsExist = false;
   print("starsExist = false. ");
   for (int i=0; i<starArray.length; i++) {
     starArray[i] = new starGen();
@@ -63,43 +54,65 @@ void setup() {
 
 void draw() {
   //shooting star movement
-  shootXPos++;
-  shootYPos = shootYPos + random(-2f, 2f);
-  if (shootXPos >= width) {
-    shootXPos = 0;
-    shootYPos = random(0, height);
-  }
+  shootStarMove();
+//  shootXPos++;
+//  shootYPos = shootYPos + random(-2f, 2f);
+//  if (shootXPos >= width) {
+//    shootXPos = 0;
+//    shootYPos = random(0, height);
+//  }
 }
 
-void mouseClicked() {
+void mousePressed() {
+  numClicks++;
+
   //spawn bg stars
-  if (starsExist == false) {
+  if (numClicks == 1) {
     bigBang();
   }
 
-  //spawn shooting star
-  if (starsExist == true) {
-    shootingStar();
+  //sun/planets
+  if (numClicks == 2) {
+    spawnSun();
   }
-}
-void keyPressed() {
-  float starShine = random(5, 10);
-    if (key == CODED) {
-    if (keyCode == RIGHT) {
-      noStroke();
-      fill(85, 175, 255, 80);
-      ellipse(shootXPos, shootYPos, starShine, starShine);
-      fill(255);
-      ellipse(shootXPos, shootYPos, 2, 2);
-    }
+
+  if (numClicks == 3) {
+    spawnMercury();
+  }
+
+  if (numClicks == 4) {
+    spawnVenus();
+  }
+
+  if (numClicks == 5) {
+    spawnEarth();
+  }
+
+  if (numClicks == 6) {
+    spawnMars();
+  }
+
+  if (numClicks == 7) {
+    spawnJupiter();
+  }
+
+  if (numClicks == 8) {
+    spawnSaturn();
+  }
+
+  if (numClicks == 9) {
+    spawnUranusHehe();
+  }
+
+  if (numClicks == 10) {
+    spawnNeptune();
   }
 }
 
-
+//SPAWN PLANETS--
 
 void bigBang() {
   //on click, explode/randomly generate stars/particles
-  starsExist = true;
   //call b/g star generation
   for (int i=0; i<starArray.length; i++) {
     starArray[i].starGenUpdate();
@@ -112,8 +125,6 @@ void spawnSun () {
   //Sun
   imageMode(CENTER);
   image(sun, centerPos.x, centerPos.y, 45, 45);
-  
-  sunIs = true;
 }
 
 void spawnMercury() {
@@ -125,8 +136,6 @@ void spawnMercury() {
   //Mercury
   imageMode(CENTER);
   image(mercury, centerPos.x, centerPos.y - 25, 10, 10);
-  
-  mercuryIs = true;
 }
 
 void spawnVenus() {
@@ -138,8 +147,6 @@ void spawnVenus() {
   //Venus
   imageMode(CENTER);
   image(venus, centerPos.x, centerPos.y - 75, 15, 15);
-  
-  venusIs = true;
 }
 
 void spawnEarth() {
@@ -151,8 +158,6 @@ void spawnEarth() {
   //Earth
   imageMode (CENTER);
   image(earth, centerPos.x, centerPos.y - 125, 15, 15);
-  
-  earthIs = true;
 }
 
 void spawnMars() {
@@ -164,8 +169,6 @@ void spawnMars() {
   //Mars
   imageMode(CENTER);
   image(mars, centerPos.x, centerPos.y - 175, 12, 12);
-  
-  marsIs = true;
 }
 
 void spawnJupiter() {
@@ -177,8 +180,6 @@ void spawnJupiter() {
   //Jupiter
   imageMode(CENTER);
   image(jupiter, centerPos.x, centerPos. y - 225, 50, 60);
-  
-  jupiterIs = true;
 }
 
 void spawnSaturn() {
@@ -190,11 +191,9 @@ void spawnSaturn() {
   //Saturn
   imageMode(CENTER);
   image(saturn, centerPos.x, centerPos.y - 275, 80, 50);
-  
-  saturnIs = true;
 }
 
-void spawnUranus() {
+void spawnUranusHehe() {
   //7th Circle
   noFill();
   strokeWeight(1);
@@ -203,8 +202,6 @@ void spawnUranus() {
   //Uranus
   imageMode(CENTER);
   image(uranus, centerPos.x, centerPos.y - 325, 20, 35);
-  
-  uranusIs = true;
 }
 
 void spawnNeptune() {
@@ -216,8 +213,5 @@ void spawnNeptune() {
   //Neptune
   imageMode(CENTER);
   image(neptune, centerPos.x, centerPos.y - 375, 20, 20);
-  
-  neptuneIs = true;
 }
-
 

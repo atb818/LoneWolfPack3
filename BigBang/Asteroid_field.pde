@@ -10,7 +10,11 @@ void Asteroid_field() {
  class asteroid {
     
 <<<<<<< HEAD
+<<<<<<< HEAD
    image(asteroid);
+=======
+    //image(asteroid);
+>>>>>>> 57ef5ef127c32e331cfd11cbdba2e19152688697
 =======
     //image(asteroid);
 >>>>>>> 57ef5ef127c32e331cfd11cbdba2e19152688697

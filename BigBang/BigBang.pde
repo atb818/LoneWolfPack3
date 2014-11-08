@@ -1,10 +1,11 @@
 //Processing - Group Collab HW
 //by Andrew, Leiah, Orien
 
-boolean starsExist;
 
 
 PVector centerPos;
+
+int numClicks = 0;
 
 PImage sun;
 PImage mercury; 
@@ -15,7 +16,9 @@ PImage jupiter;
 PImage saturn;
 PImage uranus;
 PImage neptune;
+
 PImage asteroid;
+boolean asteroidIs = false;
 
 
 starGen [] starArray = new starGen [3000];
@@ -42,7 +45,6 @@ void setup() {
   shootYPos = random(0, height);
 
   //Initialize b/g star generation
-  starsExist = false;
   print("starsExist = false. ");
   for (int i=0; i<starArray.length; i++) {
     starArray[i] = new starGen();
@@ -52,43 +54,65 @@ void setup() {
 
 void draw() {
   //shooting star movement
-  shootXPos++;
-  shootYPos = shootYPos + random(-2f, 2f);
-  if (shootXPos >= width) {
-    shootXPos = 0;
-    shootYPos = random(0, height);
-  }
+  shootStarMove();
+//  shootXPos++;
+//  shootYPos = shootYPos + random(-2f, 2f);
+//  if (shootXPos >= width) {
+//    shootXPos = 0;
+//    shootYPos = random(0, height);
+//  }
 }
 
-void mouseClicked() {
+void mousePressed() {
+  numClicks++;
+
   //spawn bg stars
-  if (starsExist == false) {
+  if (numClicks == 1) {
     bigBang();
   }
 
-  //spawn shooting star
-  if (starsExist == true) {
-    shootingStar();
+  //sun/planets
+  if (numClicks == 2) {
+    spawnSun();
   }
-}
-void keyPressed() {
-  float starShine = random(5, 10);
-    if (key == CODED) {
-    if (keyCode == RIGHT) {
-      noStroke();
-      fill(85, 175, 255, 80);
-      ellipse(shootXPos, shootYPos, starShine, starShine);
-      fill(255);
-      ellipse(shootXPos, shootYPos, 2, 2);
-    }
+
+  if (numClicks == 3) {
+    spawnMercury();
+  }
+
+  if (numClicks == 4) {
+    spawnVenus();
+  }
+
+  if (numClicks == 5) {
+    spawnEarth();
+  }
+
+  if (numClicks == 6) {
+    spawnMars();
+  }
+
+  if (numClicks == 7) {
+    spawnJupiter();
+  }
+
+  if (numClicks == 8) {
+    spawnSaturn();
+  }
+
+  if (numClicks == 9) {
+    spawnUranusHehe();
+  }
+
+  if (numClicks == 10) {
+    spawnNeptune();
   }
 }
 
-
+//SPAWN PLANETS--
 
 void bigBang() {
   //on click, explode/randomly generate stars/particles
-  starsExist = true;
   //call b/g star generation
   for (int i=0; i<starArray.length; i++) {
     starArray[i].starGenUpdate();
@@ -169,7 +193,7 @@ void spawnSaturn() {
   image(saturn, centerPos.x, centerPos.y - 275, 80, 50);
 }
 
-void spawnUranus() {
+void spawnUranusHehe() {
   //7th Circle
   noFill();
   strokeWeight(1);
@@ -190,5 +214,4 @@ void spawnNeptune() {
   imageMode(CENTER);
   image(neptune, centerPos.x, centerPos.y - 375, 20, 20);
 }
-
 

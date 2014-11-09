@@ -244,7 +244,7 @@ void bigBang() {
   for (int i=0; i<starArray.length; i++) {
     starArray[i].starGenUpdate();
   }
-  print("starsExist = true. ");
+  //print("starsExist = true. ");
 }
 
 void spawnSun() {

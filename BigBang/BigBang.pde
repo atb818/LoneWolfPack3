@@ -1,7 +1,5 @@
-//Processing - Group Collab HW
+//Processing: Group Collab HW
 //by Andrew, Leiah, Orien
-
-
 
 PVector centerPos;
 
@@ -16,6 +14,9 @@ PImage jupiter;
 PImage saturn;
 PImage uranus;
 PImage neptune;
+
+float planetSpeed;
+float planetAngle;
 
 PImage asteroid;
 boolean asteroidIs = false;
@@ -38,6 +39,9 @@ void setup() {
   saturn = loadImage("saturn.png");
   uranus = loadImage("uranus.png");
   neptune = loadImage("neptune.png");
+  
+  float planetSpeed = 20;
+  float planetAngle = 1.5;
 
   centerPos = new PVector (width/2, height/2);
 
@@ -109,7 +113,7 @@ void mousePressed() {
   }
 }
 
-//SPAWN PLANETS--
+//SPAWN PLANETS
 
 void bigBang() {
   //on click, explode/randomly generate stars/particles
@@ -120,14 +124,14 @@ void bigBang() {
   print("starsExist = true. ");
 }
 
-void spawnSun () {
+void spawnSun(){
 
   //Sun
   imageMode(CENTER);
   image(sun, centerPos.x, centerPos.y, 45, 45);
 }
 
-void spawnMercury() {
+void spawnMercury(){
   //1st Circle
   noFill();
   strokeWeight(1);
@@ -136,9 +140,16 @@ void spawnMercury() {
   //Mercury
   imageMode(CENTER);
   image(mercury, centerPos.x, centerPos.y - 25, 10, 10);
+ 
+  //Rotation Mercury
+  if(planetAngle <= PI) {
+    planetAngle += planetSpeed;
+  }else{
+    planetAngle = 0;
+  }
 }
 
-void spawnVenus() {
+void spawnVenus(){
   //2nd Circle
   noFill();
   strokeWeight(1);
@@ -149,7 +160,7 @@ void spawnVenus() {
   image(venus, centerPos.x, centerPos.y - 75, 15, 15);
 }
 
-void spawnEarth() {
+void spawnEarth(){
   //3rd Circle
   noFill();
   strokeWeight(1);
@@ -160,7 +171,7 @@ void spawnEarth() {
   image(earth, centerPos.x, centerPos.y - 125, 15, 15);
 }
 
-void spawnMars() {
+void spawnMars(){
   //4th Circle
   noFill();
   strokeWeight(1);
@@ -171,7 +182,7 @@ void spawnMars() {
   image(mars, centerPos.x, centerPos.y - 175, 12, 12);
 }
 
-void spawnJupiter() {
+void spawnJupiter(){
   //5th Circle
   noFill();
   strokeWeight(1);
@@ -182,7 +193,7 @@ void spawnJupiter() {
   image(jupiter, centerPos.x, centerPos. y - 225, 50, 60);
 }
 
-void spawnSaturn() {
+void spawnSaturn(){
   //6th Circle
   noFill();
   strokeWeight(1);
@@ -193,7 +204,7 @@ void spawnSaturn() {
   image(saturn, centerPos.x, centerPos.y - 275, 80, 50);
 }
 
-void spawnUranusHehe() {
+void spawnUranusHehe(){
   //7th Circle
   noFill();
   strokeWeight(1);
@@ -204,7 +215,7 @@ void spawnUranusHehe() {
   image(uranus, centerPos.x, centerPos.y - 325, 20, 35);
 }
 
-void spawnNeptune() {
+void spawnNeptune(){
   //8th Circle
   noFill();
   strokeWeight(1);

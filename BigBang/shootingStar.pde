@@ -34,4 +34,3 @@ void keyPressed() {
     ellipse(shootXPos, shootYPos, 2, 2);
   }
 }
-

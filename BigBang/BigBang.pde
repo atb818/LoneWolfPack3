@@ -51,6 +51,8 @@ float neptuneAngle;
 float aForce = 0;
 float  asteroidAngle;
 
+float newAngle;
+
 PImage asteroid;
 boolean asteroidIs = false;
 
@@ -114,7 +116,7 @@ void draw() {
 
   background(30, 4, 44);
 
-  
+
 
   //shooting star movement
   shootStarMove();
@@ -441,9 +443,15 @@ void spawnNeptune() {
   popMatrix();
 }
 
-void hurlAsteroid(){
-
+void hurlAsteroid() {
+  newAngle = 0.06;
+  pushMatrix();
+  translate(centerPos.x, centerPos.y);
   rotate(asteroidAngle);
-  image(asteroid,width - aForce, height/2 - aForce, 50, 50);
-  aForce = aForce+10;
+  asteroidAngle= asteroidAngle+newAngle;
+  image(asteroid, width - aForce, height/2 - aForce, 50, 50);
+  aForce = aForce+1;
+  popMatrix();
+  
 }
+

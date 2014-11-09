@@ -17,6 +17,7 @@ PImage saturn;
 PImage uranus;
 PImage neptune;
 
+
 boolean starsOn;
 boolean sunOn;
 boolean mercuryOn; 
@@ -47,6 +48,8 @@ float uranusAngle;
 float neptuneSpeed;
 float neptuneAngle;
 
+float aForce = 0;
+float  asteroidAngle;
 
 PImage asteroid;
 boolean asteroidIs = false;
@@ -70,6 +73,7 @@ void setup() {
   saturn = loadImage("saturn.png");
   uranus = loadImage("uranus.png");
   neptune = loadImage("neptune.png");
+  asteroid = loadImage("asteroid.png");
 
   mercurySpeed = .02;
   mercuryAngle = 0;
@@ -110,7 +114,7 @@ void draw() {
 
   background(30, 4, 44);
 
-
+  
 
   //shooting star movement
   shootStarMove();
@@ -188,6 +192,7 @@ void draw() {
     ellipse(centerPos.x, centerPos.y, 750, 750);
     spawnNeptune();
   }
+  hurlAsteroid();
 }
 
 void mousePressed() {
@@ -434,4 +439,11 @@ void spawnNeptune() {
 
 
   popMatrix();
+}
+
+void hurlAsteroid(){
+
+  rotate(asteroidAngle);
+  image(asteroid,width - aForce, height/2 - aForce, 50, 50);
+  aForce = aForce+10;
 }
